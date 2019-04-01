@@ -1,34 +1,31 @@
 import React, {Component} from 'react';
-import axios from "axios";
+
+import MediaCard from './MediaCard';
 
 class ProductList extends Component {
-    state = {
-        apiData: [],
-    };
 
-    componentDidMount() {
-        axios.get('https://my-json-server.typicode.com/tdmichaelis/json-api/products')
-            .then((data) => {
-                this.setState({apiData: data.data});
-                console.log(this.state.apiData);
-            })
-    }
     render() {
-        console.log(this.state.apiData);
+        let items = this.props.apiData ? this.props.apiData : [];
+        let itemList = items.map((item) => {
+            return (
+                <MediaCard
+                    title={item.title}
+                    description={item.description}
+                    image={item.img}
+                    price={item.price}
+                />
+            )
+        });
         return (
             <div>
                 ProductListPage
                 <div>
                     {
-                        this.state.apiData.forEach((item) => {
-                            return (
-                                <div>{item.id}</div>
-                            )
-                        })
+                        itemList
                     }
                 </div>
             </div>
-        )
+        );
     }
 }
 

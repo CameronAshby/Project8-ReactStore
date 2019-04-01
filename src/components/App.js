@@ -12,8 +12,21 @@ import ProductList from './ProductList'
 import CartPage from './CartPage';
 
 import SearchAppBar from './SearchAppBar'
+import axios from "axios";
 
 class App extends Component {
+    state = {
+        apiData: [],
+    };
+
+    componentDidMount() {
+        axios.get('https://my-json-server.typicode.com/tdmichaelis/json-api/products')
+            .then((data) => {
+                this.setState({apiData: data.data});
+                console.log(this.state.apiData);
+            })
+    }
+
     render() {
     return (
         <Router>
@@ -30,7 +43,7 @@ class App extends Component {
                 </Link>
                 <Switch>
                     <Route exact path='/login' component={LoginPage} />
-                    <Route exact path='/productList' component={ProductList}/>
+                    <Route exact path='/productList' render={(props) => <ProductList apiData={this.state.apiData} {...props} /> } />
                     <Route exact path='/cart' component={CartPage}/>
                 </Switch>
             </div>
