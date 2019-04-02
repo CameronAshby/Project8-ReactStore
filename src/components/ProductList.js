@@ -10,9 +10,11 @@ class ProductList extends Component {
         let items = this.props.apiData ? this.props.apiData : [];
         let itemList = items.map((item, index) => {
             return (
-                <div className='card'>
+                <div className='card'
+                     key={index}
+                >
                     <MediaCard
-                        key={index}
+                        itemId={item.id}
                         title={item.title}
                         description={item.description}
                         image={item.img}

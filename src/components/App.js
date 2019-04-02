@@ -10,6 +10,7 @@ import {
 import LoginPage from './LoginPage'
 import ProductList from './ProductList'
 import CartPage from './CartPage';
+import ProductDetails from './ProductDetails';
 
 import SearchAppBar from './SearchAppBar'
 import axios from "axios";
@@ -45,6 +46,7 @@ class App extends Component {
                     <Route exact path='/login' component={LoginPage} />
                     <Route exact path='/productList' render={(props) => <ProductList apiData={this.state.apiData} {...props} /> } />
                     <Route exact path='/cart' component={CartPage}/>
+                    <Route exact path='/productDetail/:id' component={ProductDetails}/>
                 </Switch>
             </div>
         </Router>
