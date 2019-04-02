@@ -1,2 +1,7 @@
 import {createStore} from "redux";
-import uuid from 'uuid';
+
+
+
+const store = createStore(reducer);
+
+export default store;

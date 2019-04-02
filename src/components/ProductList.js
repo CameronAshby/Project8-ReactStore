@@ -2,24 +2,29 @@ import React, {Component} from 'react';
 
 import MediaCard from './MediaCard';
 
+import '../CSS/productList.css';
+
 class ProductList extends Component {
 
     render() {
         let items = this.props.apiData ? this.props.apiData : [];
-        let itemList = items.map((item) => {
+        let itemList = items.map((item, index) => {
             return (
-                <MediaCard
-                    title={item.title}
-                    description={item.description}
-                    image={item.img}
-                    price={item.price}
-                />
+                <div className='card'>
+                    <MediaCard
+                        key={index}
+                        title={item.title}
+                        description={item.description}
+                        image={item.img}
+                        price={item.price}
+                        rating={item.rating}
+                    />
+                </div>
             )
         });
         return (
             <div>
-                ProductListPage
-                <div>
+                <div className='cardContainer'>
                     {
                         itemList
                     }

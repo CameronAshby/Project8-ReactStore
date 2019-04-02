@@ -26,7 +26,7 @@ function MediaCard(props) {
                 <CardMedia
                     className={classes.media}
                     image={props.image}
-                    title="Contemplative Reptile"
+                    title="Product Image"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -34,6 +34,9 @@ function MediaCard(props) {
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h4">
                         ${props.price}
+                    </Typography>
+                    <Typography gutterBottom variant="h5" component="h4">
+                        {props.rating}
                     </Typography>
                     <Typography component="p">
                         {props.description}
