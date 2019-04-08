@@ -15,17 +15,23 @@ import ProductDetails from './ProductDetails';
 import SearchAppBar from './SearchAppBar'
 import axios from "axios";
 
-class App extends Component {
-    state = {
-        apiData: [],
-    };
+import products from '../API/products';
 
+import store from './Store';
+
+class App extends Component {
     componentDidMount() {
-        axios.get('https://my-json-server.typicode.com/tdmichaelis/json-api/products')
-            .then((data) => {
-                this.setState({apiData: data.data});
-            })
+        store.subscribe(() => this.forceUpdate());
+        this.getProducts();
     }
+
+    getProducts = async () => {
+        const response = await products.get('/products');
+        store.dispatch({
+            type: 'SET_PRODUCTS',
+            productList: response.data
+        });
+    };
 
     render() {
     return (
@@ -34,7 +40,7 @@ class App extends Component {
                 <SearchAppBar/>
                 <Switch>
                     <Route exact path='/' component={LoginPage} />
-                    <Route exact path='/productList' render={(props) => <ProductList apiData={this.state.apiData} {...props} /> } />
+                    <Route exact path='/productList' render={(props) => <ProductList apiData={store.getState().products} {...props} /> } />
                     <Route exact path='/cart' component={CartPage}/>
                     <Route exact path='/productDetail/:id' component={ProductDetails}/>
                 </Switch>

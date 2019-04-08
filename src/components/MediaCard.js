@@ -10,12 +10,11 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from "react-router-dom";
 
+import '../CSS/mediaCard.css';
+
 const styles = {
     card: {
-        maxWidth: 345,
-    },
-    media: {
-        height: 140,
+        width: '100%',
     },
 };
 
@@ -24,11 +23,13 @@ function MediaCard(props) {
     return (
         <Card className={classes.card}>
             <CardActionArea>
-                <CardMedia
-                    className={classes.media}
-                    image={props.image}
-                    title="Product Image"
-                />
+                <div className='imageContainer'>
+                    <img
+                        className={classes.media}
+                        src={props.image}
+                        title="Product Image"
+                    />
+                </div>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.title}
@@ -45,11 +46,13 @@ function MediaCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    <Link to={`/productDetail/${props.itemId}`} className='item'>
-                        View Details
-                    </Link>
-                </Button>
+                {props.detail ?
+                    <Button size="small" color="primary">
+                        <Link to={`/productDetail/${props.itemId}`} className='item'>
+                            View Details
+                        </Link>
+                    </Button>
+                : null}
                 <Button size="small" color="primary">
                     Add To Cart
                 </Button>

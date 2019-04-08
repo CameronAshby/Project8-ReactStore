@@ -20,6 +20,7 @@ class ProductList extends Component {
                         image={item.img}
                         price={item.price}
                         rating={item.rating}
+                        detail={true}
                     />
                 </div>
             )
