@@ -1,18 +1,20 @@
 import {createStore} from "redux";
 
 function reducer(state, action) {
-    if(action.type === 'ADD_MESSAGE') {
+    if(action.type === 'CART_ADD') {
         return {
-            messages: state.messages.concat(action.message)
         }
     }
-    else if(action.type === 'DELETE_MESSAGE') {
+    else if(action.type === 'CART_REMOVE') {
         return {
-            messages: [
-                ...state.messages.slice(0, action.index),
-                ...state.messages.slice(action.index + 1, state.messages.length
-                ),
-            ]
+        }
+    }
+    else if(action.type === 'CART_EDIT') {
+        return {
+        }
+    }
+    else if(action.type === 'USER_SIGNIN') {
+        return {
         }
     }
     else {

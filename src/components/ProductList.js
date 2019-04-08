@@ -25,11 +25,9 @@ class ProductList extends Component {
             )
         });
         return (
-            <div>
+            <div className='mainContainer'>
                 <div className='cardContainer'>
-                    {
-                        itemList
-                    }
+                    {itemList}
                 </div>
             </div>
         );
