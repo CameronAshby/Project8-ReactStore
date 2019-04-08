@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from "react-router-dom";
 
+import Stars from '@material-ui/icons/Stars';
+
 import '../CSS/mediaCard.css';
 
 const styles = {
@@ -31,29 +33,32 @@ function MediaCard(props) {
                     />
                 </div>
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography className='cardTitle' gutterBottom variant="h5" component="h2">
                         {props.title}
                     </Typography>
-                    <Typography gutterBottom variant="h5" component="h4">
+                    <span className='infoContainer'>
+                        <h3>
                         ${props.price}
-                    </Typography>
-                    <Typography gutterBottom variant="h5" component="h4">
-                        {props.rating}
-                    </Typography>
-                    <Typography component="p">
+                    </h3>
+                        |
+                    <h3>
+                        <span className='rating'><Stars/>{props.rating}</span>
+                    </h3>
+                    </span>
+                    <Typography className='cardInfo' component="p">
                         {props.description}
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions>
+            <CardActions className='buttonContainer'>
                 {props.detail ?
-                    <Button size="small" color="primary">
-                        <Link to={`/productDetail/${props.itemId}`} className='item'>
+                    <Button variant="contained" size="small" color="primary">
+                        <Link to={`/productDetail/${props.itemId}`} className='item cardButton'>
                             View Details
                         </Link>
                     </Button>
                 : null}
-                <Button size="small" color="primary">
+                <Button variant="contained" size="small" color="primary">
                     Add To Cart
                 </Button>
             </CardActions>
