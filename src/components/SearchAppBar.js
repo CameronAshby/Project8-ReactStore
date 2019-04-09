@@ -10,6 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import NavMenu from './NavMenu';
 
 import '../CSS/navBar.css';
+import store from './Store';
 
 const styles = theme => ({
     root: {
@@ -82,7 +83,7 @@ function SearchAppBar(props) {
                         React E-Commerce
                     </Typography>
                     <div className={classes.grow} />
-                    <div className='navBarUsername'>UserName</div>
+                    <div className='navBarUsername'>{store.getState().user ? 'Welcome ' + store.getState().user: ''}</div>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />

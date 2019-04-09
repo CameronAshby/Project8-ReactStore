@@ -1,7 +1,35 @@
-import {createStore} from "redux";
-import axios from "axios";
+import {createStore, combineReducers} from "redux";
 
-function reducer(state, action) {
+const reducer = combineReducers({
+    products: productReducer,
+    selectedProduct: selectProductReducer,
+    cart: cartReducer,
+    user: userReducer
+});
+
+function productReducer(state = [], action) {
+    if(action.type === 'SET_PRODUCTS') {
+        return (
+            action.productList
+        );
+    }
+    else {
+        return state;
+    }
+}
+
+function selectProductReducer(state = {}, action) {
+    if(action.type === 'SELECT_PRODUCT') {
+        return (
+            action.selectedItem
+        );
+    }
+    else {
+        return state;
+    }
+}
+
+function cartReducer(state = [], action) {
     if(action.type === 'CART_ADD') {
         return {
         }
@@ -14,13 +42,14 @@ function reducer(state, action) {
         return {
         }
     }
-    else if(action.type === 'USER_SIGNIN') {
-        return {
-        }
+    else {
+        return state;
     }
-    else if(action.type === 'SET_PRODUCTS') {
+}
+
+function userReducer(state = [], action) {
+    if(action.type === 'USER_SIGNIN') {
         return {
-            products: action.productList
         }
     }
     else {
@@ -28,8 +57,6 @@ function reducer(state, action) {
     }
 }
 
-const initialState = { products: [] };
-
-const store = createStore(reducer, initialState);
+const store = createStore(reducer);
 
 export default store;

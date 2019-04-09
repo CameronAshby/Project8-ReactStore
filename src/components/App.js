@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
     Route,
-    Link,
     Switch
 } from 'react-router-dom';
 
@@ -12,8 +11,7 @@ import ProductList from './ProductList'
 import CartPage from './CartPage';
 import ProductDetails from './ProductDetails';
 
-import SearchAppBar from './SearchAppBar'
-import axios from "axios";
+import SearchAppBar from './SearchAppBar';
 
 import products from '../API/products';
 
