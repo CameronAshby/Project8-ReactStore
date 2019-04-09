@@ -1,3 +1,8 @@
 .navBarUsername {
     margin-right: 15px;
 }
+
+.usernameContainer {
+    display: flex;
+    justify-content: center;
+}

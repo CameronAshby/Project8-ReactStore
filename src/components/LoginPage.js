@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 
+import {Link} from "react-router-dom";
+
+import store from './Store';
+
 import '../CSS/loginPage.css';
 
 class LoginPage extends Component {
@@ -11,7 +15,6 @@ class LoginPage extends Component {
     };
 
     onChangeUsername = (e) => {
-        console.log(this.state.username);
         this.setState({
             username: e.target.value,
         })
@@ -23,9 +26,17 @@ class LoginPage extends Component {
         })
     };
 
-    handleSubmit() {
-
-    }
+    handleSubmit = () => {
+        store.dispatch({
+            type: 'USER_SIGNIN',
+            username: this.state.username,
+            password: this.state.password
+        });
+        this.setState({
+            username: '',
+            password: ''
+        });
+    };
 
     render() {
         return(
@@ -33,7 +44,7 @@ class LoginPage extends Component {
                 <h2>Login</h2>
                 <Input onChange={this.onChangeUsername} value={this.state.username} className='input' placeholder='Username' type='text'/>
                 <Input onChange={this.onChangePassword} value={this.state.password} className='input' placeholder='Password' type='password'/>
-                <Button variant="contained" size="small" color="primary" onClick={this.handleSubmit()}>Login</Button>
+                <Button variant="contained" size="small" color="primary" onClick={this.handleSubmit}> <Link to='/productList' className='item cardButton'>Login</Link> </Button>
             </div>
         );
     }

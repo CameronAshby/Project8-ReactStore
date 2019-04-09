@@ -50,6 +50,8 @@ function cartReducer(state = [], action) {
 function userReducer(state = [], action) {
     if(action.type === 'USER_SIGNIN') {
         return {
+            username: action.username,
+            password: action.password
         }
     }
     else {

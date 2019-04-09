@@ -82,8 +82,11 @@ function SearchAppBar(props) {
                     <Typography className={classes.title} variant="h6" color="inherit" noWrap>
                         React E-Commerce
                     </Typography>
-                    <div className={classes.grow} />
-                    <div className='navBarUsername'>{store.getState().user ? 'Welcome ' + store.getState().user: ''}</div>
+                    <div className={classes.grow}>
+                        <div className='usernameContainer'>
+                            <h3 className='navBarUsername'>{store.getState().user.username !== undefined ? 'Welcome ' + store.getState().user.username: ''}</h3>
+                        </div>
+                    </div>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
