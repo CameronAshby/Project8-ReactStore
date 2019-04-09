@@ -10,11 +10,9 @@ import LoginPage from './LoginPage'
 import ProductList from './ProductList'
 import CartPage from './CartPage';
 import ProductDetails from './ProductDetails';
-
 import SearchAppBar from './SearchAppBar';
 
 import products from '../API/products';
-
 import store from './Store';
 
 class App extends Component {
@@ -42,6 +40,7 @@ class App extends Component {
                     <Route exact path='/cart' component={CartPage}/>
                     <Route exact path='/productDetail/:id' component={ProductDetails}/>
                 </Switch>
+                <div>Footer</div>
             </div>
         </Router>
     );

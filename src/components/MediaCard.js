@@ -8,7 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from "react-router-dom";
-
 import Stars from '@material-ui/icons/Stars';
 
 import '../CSS/mediaCard.css';

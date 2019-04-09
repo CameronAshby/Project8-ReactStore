@@ -9,9 +9,7 @@ const reducer = combineReducers({
 
 function productReducer(state = [], action) {
     if(action.type === 'SET_PRODUCTS') {
-        return (
-            action.productList
-        );
+        return (action.productList);
     }
     else {
         return state;
@@ -29,7 +27,7 @@ function selectProductReducer(state = {}, action) {
     }
 }
 
-function cartReducer(state = [], action) {
+function cartReducer(state = ['item', 'fancy', 'great', 'Green Eggs & Ham'], action) {
     if(action.type === 'CART_ADD') {
         return {
         }

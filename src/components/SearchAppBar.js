@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import NavMenu from './NavMenu';
+import Badge from '@material-ui/core/Badge';
+import {Link} from "react-router-dom";
 
 import '../CSS/navBar.css';
 import store from './Store';
@@ -79,26 +79,16 @@ function SearchAppBar(props) {
             <AppBar position="static">
                 <Toolbar>
                     <NavMenu/>
-                    <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-                        React E-Commerce
-                    </Typography>
                     <div className={classes.grow}>
                         <div className='usernameContainer'>
-                            <h3 className='navBarUsername'>{store.getState().user.username !== undefined ? 'Welcome ' + store.getState().user.username: ''}</h3>
+                            <h3 className='navBarUsername'>{store.getState().user.username !== undefined ? 'Welcome to E-ReactStore ' + store.getState().user.username + '!' : 'E-ReactStore'}</h3>
                         </div>
                     </div>
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                        />
-                    </div>
+                    <Link to='/cart' className='item cartLink'>
+                        <Badge className={classes.margin} badgeContent={store.getState().cart.length} color="secondary">
+                            <ShoppingCart/>
+                        </Badge>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>
