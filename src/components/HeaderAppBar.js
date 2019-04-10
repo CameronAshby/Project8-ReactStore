@@ -72,7 +72,7 @@ const styles = theme => ({
     },
 });
 
-function SearchAppBar(props) {
+function HeaderAppBar(props) {
     const { classes } = props;
     return (
         <div className={classes.root}>
@@ -95,8 +95,8 @@ function SearchAppBar(props) {
     );
 }
 
-SearchAppBar.propTypes = {
+HeaderAppBar.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SearchAppBar);
+export default withStyles(styles)(HeaderAppBar);

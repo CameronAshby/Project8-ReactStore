@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import MediaCard from './MediaCard';
+import SearchBar from './SearchBar'
 
 import '../CSS/productList.css';
 
@@ -22,6 +23,8 @@ class ProductList extends Component {
         });
         return (
             <div className='mainContainer'>
+                all or filter
+                <SearchBar/>
                 <div className='cardContainer'>
                     {itemList}
                 </div>

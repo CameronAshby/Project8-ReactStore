@@ -10,7 +10,7 @@ import LoginPage from './LoginPage'
 import ProductList from './ProductList'
 import CartPage from './CartPage';
 import ProductDetails from './ProductDetails';
-import SearchAppBar from './SearchAppBar';
+import HeaderAppBar from './HeaderAppBar';
 
 import products from '../API/products';
 import store from './Store';
@@ -33,7 +33,7 @@ class App extends Component {
     return (
         <Router>
             <div>
-                <SearchAppBar/>
+                <HeaderAppBar/>
                 <Switch>
                     <Route exact path='/' component={LoginPage} />
                     <Route exact path='/productList' render={(props) => <ProductList apiData={store.getState().products} {...props} /> } />
