@@ -14,12 +14,7 @@ class ProductList extends Component {
                      key={index}
                 >
                     <MediaCard
-                        itemId={item.id}
-                        title={item.title}
-                        description={item.description}
-                        image={item.img}
-                        price={item.price}
-                        rating={item.rating}
+                        item={item}
                         detail={true}
                     />
                 </div>

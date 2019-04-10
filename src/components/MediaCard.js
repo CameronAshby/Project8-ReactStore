@@ -10,12 +10,21 @@ import Typography from '@material-ui/core/Typography';
 import {Link} from "react-router-dom";
 import Stars from '@material-ui/icons/Stars';
 
+import store from './Store';
+
 import '../CSS/mediaCard.css';
 
 const styles = {
     card: {
         width: '100%',
     },
+};
+
+let handleAdd = (item) => {
+    store.dispatch({
+        type: 'CART_ADD',
+        item: item
+    })
 };
 
 function MediaCard(props) {
@@ -26,38 +35,38 @@ function MediaCard(props) {
                 <div className='imageContainer'>
                     <img
                         className={classes.media}
-                        src={props.image}
+                        src={props.item.img}
                         title="Product Image"
                         alt=''
                     />
                 </div>
                 <CardContent>
                     <Typography className='cardTitle' gutterBottom variant="h5" component="h2">
-                        {props.title}
+                        {props.item.title}
                     </Typography>
                     <span className='infoContainer'>
                         <h3>
-                        ${props.price}
+                        ${props.item.price}
                     </h3>
                         |
                     <h3>
-                        <span className='rating'><Stars/>{props.rating}</span>
+                        <span className='rating'><Stars/>{props.item.rating}</span>
                     </h3>
                     </span>
                     <Typography className='cardInfo' component="p">
-                        {props.description}
+                        {props.item.description}
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions className='buttonContainer'>
                 {props.detail ?
                     <Button variant="contained" size="small" color="primary">
-                        <Link to={`/productDetail/${props.itemId}`} className='item cardButton'>
+                        <Link to={`/productDetail/${props.item.id}`} className='item cardButton'>
                             View Details
                         </Link>
                     </Button>
                 : null}
-                <Button variant="contained" size="small" color="primary">
+                <Button variant="contained" size="small" color="primary" onClick={() => handleAdd(props.item)}>
                     Add To Cart
                 </Button>
             </CardActions>

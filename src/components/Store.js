@@ -27,10 +27,11 @@ function selectProductReducer(state = {}, action) {
     }
 }
 
-function cartReducer(state = ['item', 'fancy', 'great', 'Green Eggs & Ham'], action) {
+function cartReducer(state = [], action) {
     if(action.type === 'CART_ADD') {
-        return {
-        }
+        let cartItem = Object.assign(action.item, {quantity: 1});
+        let newCart = [...state, cartItem];
+        return (newCart);
     }
     else if(action.type === 'CART_REMOVE') {
         return {

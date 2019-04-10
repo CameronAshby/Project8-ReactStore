@@ -11,6 +11,9 @@ class ProductDetails extends Component {
         this.getProduct();
     }
 
+    componentWillUnmount() {
+    }
+
     getProduct = async () => {
         const response = await products.get(`/products?id=${this.props.match.params.id}`);
         store.dispatch({
@@ -25,12 +28,14 @@ class ProductDetails extends Component {
                 {
                     store.getState().selectedProduct ?
                         <MediaCard
-                            itemId={store.getState().selectedProduct}
+                            item={store.getState().selectedProduct}
+                            itemId={store.getState().selectedProduct.id}
                             title={store.getState().selectedProduct.title}
                             description={store.getState().selectedProduct.description}
                             image={store.getState().selectedProduct.img}
                             price={store.getState().selectedProduct.price}
                             rating={store.getState().selectedProduct.rating}
+                            addCart={this.props.addCart}
                         />
                         :
                         ''
