@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
 import store from './Store';
-import Stars from '@material-ui/icons/Stars';
 import Input from '@material-ui/core/Input';
 import DownArrow from '@material-ui/icons/KeyboardArrowDown';
 import UpArrow from '@material-ui/icons/KeyboardArrowUp';
+import Snackbar from './SnackBar';
 
 import '../CSS/cartPage.css';
-import Button from "@material-ui/core/Button";
 
 class CartPage extends Component {
+
+    handleRemove(item) {
+        store.dispatch({
+            type: 'CART_REMOVE',
+            item: item
+        })
+    }
+
     render() {
         let items = store.getState().cart ? store.getState().cart : [];
         let itemList = items.map((item, index) => {
@@ -30,7 +37,7 @@ class CartPage extends Component {
                                 <Input className='cartInput' value={item.quantity} type='number'/>
                                 <DownArrow/>
                             </div>
-                            <Button variant="contained" size="small" color="primary">Remove</Button>
+                            <span onClick={() => this.handleRemove(item)}><Snackbar type='REMOVE'/></span>
                         </div>
                     </div>
                 </div>

@@ -34,8 +34,8 @@ function cartReducer(state = [], action) {
         return (newCart);
     }
     else if(action.type === 'CART_REMOVE') {
-        return {
-        }
+        let newCart = state.filter(item => item.id !== action.item.id);
+        return (newCart);
     }
     else if(action.type === 'CART_EDIT') {
         return {
