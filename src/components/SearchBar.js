@@ -26,22 +26,18 @@ const styles = theme => ({
 });
 
 class SimpleTabs extends React.Component {
-    state = {
-        value: 0,
-    };
-
     handleChange = (event, value) => {
-        this.setState({ value });
+        this.props.changeTab(value);
     };
 
     render() {
         const { classes } = this.props;
-        const { value } = this.state;
+        let value = {value: this.props.stateTab};
 
         return (
             <div className={classes.root}>
                 <AppBar position="static">
-                    <Tabs value={value} onChange={this.handleChange}>
+                    <Tabs value={value.value} onChange={this.handleChange}>
                         <Tab label="Phones" />
                         <Tab label="TVs" />
                         <Tab label="Appliances" />
@@ -50,12 +46,12 @@ class SimpleTabs extends React.Component {
                         <Tab label="Action-Cameras" />
                     </Tabs>
                 </AppBar>
-                {value === 0 && <TabContainer>Phones</TabContainer>}
-                {value === 1 && <TabContainer>TVs</TabContainer>}
-                {value === 2 && <TabContainer>Appliances</TabContainer>}
-                {value === 3 && <TabContainer>Refrigerators</TabContainer>}
-                {value === 4 && <TabContainer>Watches</TabContainer>}
-                {value === 5 && <TabContainer>Action-Cameras</TabContainer>}
+                {value.value === 0 && <TabContainer>Phones</TabContainer>}
+                {value.value === 1 && <TabContainer>TVs</TabContainer>}
+                {value.value === 2 && <TabContainer>Appliances</TabContainer>}
+                {value.value === 3 && <TabContainer>Refrigerators</TabContainer>}
+                {value.value === 4 && <TabContainer>Watches</TabContainer>}
+                {value.value === 5 && <TabContainer>Action-Cameras</TabContainer>}
             </div>
         );
     }

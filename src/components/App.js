@@ -14,6 +14,9 @@ import HeaderAppBar from './HeaderAppBar';
 
 import products from '../API/products';
 import store from './Store';
+import FooterAppBar from './FooterAppBar';
+
+import '../CSS/app.css';
 
 class App extends Component {
     componentDidMount() {
@@ -32,15 +35,15 @@ class App extends Component {
     render() {
     return (
         <Router>
-            <div>
-                <HeaderAppBar/>
+            <div className='appContainer'>
+                <HeaderAppBar />
                 <Switch>
                     <Route exact path='/' component={LoginPage} />
                     <Route exact path='/productList' render={(props) => <ProductList apiData={store.getState().products} {...props} /> } />
                     <Route exact path='/cart' component={CartPage}/>
                     <Route exact path='/productDetail/:id' component={ProductDetails}/>
                 </Switch>
-                <div>Footer</div>
+                <FooterAppBar/>
             </div>
         </Router>
     );

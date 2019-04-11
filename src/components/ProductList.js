@@ -6,6 +6,16 @@ import SearchBar from './SearchBar'
 import '../CSS/productList.css';
 
 class ProductList extends Component {
+    state = {
+        tab: 0,
+        filterList: []
+    };
+
+    changeTab = (tabValue) => {
+        this.setState({
+            tab: tabValue
+        })
+    };
 
     render() {
         let items = this.props.apiData ? this.props.apiData : [];
@@ -24,7 +34,7 @@ class ProductList extends Component {
         return (
             <div className='mainContainer'>
                 all or filter
-                <SearchBar/>
+                <SearchBar stateTab={this.state.tab} changeTab={this.changeTab}/>
                 <div className='cardContainer'>
                     {itemList}
                 </div>
