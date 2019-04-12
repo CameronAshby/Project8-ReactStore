@@ -16,6 +16,10 @@ class CartPage extends Component {
         })
     }
 
+    handleEdit() {
+
+    }
+
     render() {
         let items = store.getState().cart ? store.getState().cart : [];
         let itemList = items.map((item, index) => {

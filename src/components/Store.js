@@ -7,6 +7,12 @@ const reducer = combineReducers({
     user: userReducer
 });
 
+function findItemIndex(items, action) {
+    return items.findIndex(
+        (t) => t.id === action.item.id
+    );
+}
+
 function productReducer(state = [], action) {
     if(action.type === 'SET_PRODUCTS') {
         return (action.productList);
@@ -28,9 +34,18 @@ function selectProductReducer(state = {}, action) {
 }
 
 function cartReducer(state = [], action) {
+    let newCart;
+    let oldCart = state;
     if(action.type === 'CART_ADD') {
-        let cartItem = Object.assign(action.item, {quantity: 1});
-        let newCart = [...state, cartItem];
+        let checkIndex = findItemIndex(state,action);
+        if(checkIndex === -1) {
+            let cartItem = Object.assign(action.item, {quantity: 1});
+            newCart = [...state, cartItem];
+        }
+        else {
+            oldCart[checkIndex].quantity++;
+            return oldCart;
+        }
         return (newCart);
     }
     else if(action.type === 'CART_REMOVE') {
