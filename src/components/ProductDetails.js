@@ -7,7 +7,6 @@ import products from "../API/products";
 
 class ProductDetails extends Component {
     componentDidMount() {
-        store.subscribe(() => this.forceUpdate());
         this.getProduct();
     }
 
