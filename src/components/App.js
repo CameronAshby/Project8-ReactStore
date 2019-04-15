@@ -38,10 +38,10 @@ class App extends Component {
             <div className='appContainer'>
                 <HeaderAppBar />
                 <Switch>
-                    <Route exact path='/' component={LoginPage} />
                     <Route exact path='/productList' render={(props) => <ProductList apiData={store.getState().products} {...props} /> } />
                     <Route exact path='/cart' component={CartPage}/>
                     <Route exact path='/productDetail/:id' component={ProductDetails}/>
+                    <Route exact path='**' component={LoginPage} />
                 </Switch>
                 <FooterAppBar/>
             </div>
