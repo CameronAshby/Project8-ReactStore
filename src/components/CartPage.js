@@ -16,8 +16,12 @@ class CartPage extends Component {
         })
     }
 
-    handleEdit() {
-
+    handleEdit(direction, item) {
+        store.dispatch({
+            type: 'CART_EDIT',
+            item: item,
+            direction: direction
+        })
     }
 
     render() {
@@ -37,9 +41,9 @@ class CartPage extends Component {
                                 <div>${item.price}</div>
                             </div>
                             <div className='inputContainer'>
-                                <UpArrow/>
+                                <UpArrow onClick={() => this.handleEdit('up', item)}/>
                                 <Input className='cartInput' value={item.quantity} type='number'/>
-                                <DownArrow/>
+                                <DownArrow onClick={() => this.handleEdit('down', item)}/>
                             </div>
                             <span onClick={() => this.handleRemove(item)}><Snackbar type='REMOVE'/></span>
                         </div>

@@ -53,7 +53,15 @@ function cartReducer(state = [], action) {
         return (newCart);
     }
     else if(action.type === 'CART_EDIT') {
-        return {
+        if(action.direction === 'up') {
+            action.item.quantity++;
+            return (state);
+        }
+        else {
+            if (action.item.quantity > 1) {
+                action.item.quantity--;
+            }
+            return (state)
         }
     }
     else {
