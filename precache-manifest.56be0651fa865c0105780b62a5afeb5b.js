@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "ce934910867a9c717716",
+    "revision": "37adcc342a2a4b92443f",
     "url": "/Project8-ReactStore/static/css/main.a87617c1.chunk.css"
   },
   {
-    "revision": "ce934910867a9c717716",
-    "url": "/Project8-ReactStore/static/js/main.f179e5c3.chunk.js"
+    "revision": "37adcc342a2a4b92443f",
+    "url": "/Project8-ReactStore/static/js/main.45952948.chunk.js"
   },
   {
     "revision": "a4504d9079932e211869",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/Project8-ReactStore/static/js/2.8dd4e399.chunk.js"
   },
   {
-    "revision": "7c62a20900bd06a0be23a77d1c37c8b3",
+    "revision": "fabadbf7c3596f56997a558ba39ca72a",
     "url": "/Project8-ReactStore/index.html"
   }
 ];
