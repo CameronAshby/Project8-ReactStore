@@ -1,0 +1,8 @@
+.totalBar {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border: 1px solid #DADFEA;
+}

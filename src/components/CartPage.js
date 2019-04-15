@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import store from './Store';
-import Input from '@material-ui/core/Input';
 import DownArrow from '@material-ui/icons/KeyboardArrowDown';
 import UpArrow from '@material-ui/icons/KeyboardArrowUp';
 import Snackbar from './SnackBar';
+import CartTotalBar from './CartTotalBar';
 
 import '../CSS/cartPage.css';
 
@@ -21,6 +21,9 @@ class CartPage extends Component {
             type: 'CART_EDIT',
             item: item,
             direction: direction
+        });
+        store.dispatch({
+            type: 'CART_TOTAL'
         })
     }
 
@@ -42,7 +45,7 @@ class CartPage extends Component {
                             </div>
                             <div className='inputContainer'>
                                 <UpArrow onClick={() => this.handleEdit('up', item)}/>
-                                <Input className='cartInput' value={item.quantity} type='number'/>
+                                <div className='cartInput'>{item.quantity}</div>
                                 <DownArrow onClick={() => this.handleEdit('down', item)}/>
                             </div>
                             <span onClick={() => this.handleRemove(item)}><Snackbar type='REMOVE'/></span>
@@ -52,8 +55,8 @@ class CartPage extends Component {
             )
         });
         return (
-            <div>
-                <div>CheckoutBar</div>
+            <div className='pageContainer'>
+                <CartTotalBar/>
                 <div>{itemList}</div>
             </div>
         );

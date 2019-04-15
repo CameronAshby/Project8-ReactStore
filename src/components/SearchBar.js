@@ -78,7 +78,6 @@ class SimpleTabs extends React.Component {
                         <Tab label="Phones" />
                         <Tab label="TVs" />
                         <Tab label="Appliances" />
-                        <Tab label="Refrigerators" />
                         <Tab label="Watches" />
                         <Tab label="Action-Cameras" />
                     </Tabs>
@@ -105,21 +104,16 @@ class SimpleTabs extends React.Component {
                 <TabContainer>
                     <div className={classes.contentContainer}>
                         {this.mapFilterArray(this.sortChange('small-appliance'))}
+                        {this.mapFilterArray(this.sortChange('refrigerator'))}
                     </div>
                 </TabContainer>}
                 {value.value === 4 &&
                 <TabContainer>
                     <div className={classes.contentContainer}>
-                        {this.mapFilterArray(this.sortChange('refrigerator'))}
-                    </div>
-                </TabContainer>}
-                {value.value === 5 &&
-                <TabContainer>
-                    <div className={classes.contentContainer}>
                         {this.mapFilterArray(this.sortChange('watch'))}
                     </div>
                 </TabContainer>}
-                {value.value === 6 &&
+                {value.value === 5 &&
                 <TabContainer>
                     <div className={classes.contentContainer}>
                         {this.mapFilterArray(this.sortChange('action-camera'))}

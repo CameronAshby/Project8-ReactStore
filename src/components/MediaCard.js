@@ -25,6 +25,9 @@ let handleAdd = (item) => {
     store.dispatch({
         type: 'CART_ADD',
         item: item
+    });
+    store.dispatch({
+        type: 'CART_TOTAL'
     })
 };
 

@@ -22,7 +22,7 @@ function productReducer(state = [], action) {
     }
 }
 
-function selectProductReducer(state = {}, action) {
+function selectProductReducer(state = [], action) {
     if(action.type === 'SELECT_PRODUCT') {
         return (
             action.selectedItem
@@ -54,15 +54,20 @@ function cartReducer(state = [], action) {
     }
     else if(action.type === 'CART_EDIT') {
         if(action.direction === 'up') {
-            action.item.quantity++;
-            return (state);
+            if(action.item.quantity < 10) {
+                action.item.quantity++;
+            }
         }
         else {
             if (action.item.quantity > 1) {
                 action.item.quantity--;
             }
-            return (state)
         }
+        return (state);
+    }
+    else if(action.type === 'CART_CLEAR') {
+        let newCart = [];
+        return (newCart);
     }
     else {
         return state;
