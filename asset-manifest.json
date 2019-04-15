@@ -1,13 +1,13 @@
 {
-  "main.css": "/Project8-ReactStore/static/css/main.a87617c1.chunk.css",
-  "main.js": "/Project8-ReactStore/static/js/main.45952948.chunk.js",
-  "main.js.map": "/Project8-ReactStore/static/js/main.45952948.chunk.js.map",
+  "main.css": "/Project8-ReactStore/static/css/main.de21926a.chunk.css",
+  "main.js": "/Project8-ReactStore/static/js/main.1f400ab1.chunk.js",
+  "main.js.map": "/Project8-ReactStore/static/js/main.1f400ab1.chunk.js.map",
   "runtime~main.js": "/Project8-ReactStore/static/js/runtime~main.c60984fb.js",
   "runtime~main.js.map": "/Project8-ReactStore/static/js/runtime~main.c60984fb.js.map",
-  "static/js/2.8dd4e399.chunk.js": "/Project8-ReactStore/static/js/2.8dd4e399.chunk.js",
-  "static/js/2.8dd4e399.chunk.js.map": "/Project8-ReactStore/static/js/2.8dd4e399.chunk.js.map",
+  "static/js/2.82dd8a66.chunk.js": "/Project8-ReactStore/static/js/2.82dd8a66.chunk.js",
+  "static/js/2.82dd8a66.chunk.js.map": "/Project8-ReactStore/static/js/2.82dd8a66.chunk.js.map",
   "index.html": "/Project8-ReactStore/index.html",
-  "precache-manifest.56be0651fa865c0105780b62a5afeb5b.js": "/Project8-ReactStore/precache-manifest.56be0651fa865c0105780b62a5afeb5b.js",
+  "precache-manifest.5e45f4fd627018eca9ff89dc65eab4f3.js": "/Project8-ReactStore/precache-manifest.5e45f4fd627018eca9ff89dc65eab4f3.js",
   "service-worker.js": "/Project8-ReactStore/service-worker.js",
-  "static/css/main.a87617c1.chunk.css.map": "/Project8-ReactStore/static/css/main.a87617c1.chunk.css.map"
+  "static/css/main.de21926a.chunk.css.map": "/Project8-ReactStore/static/css/main.de21926a.chunk.css.map"
 }
