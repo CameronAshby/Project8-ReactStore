@@ -6,3 +6,9 @@
 
     border: 1px solid #DADFEA;
 }
+
+@media only screen and (max-width: 900px) {
+    .totalBar {
+        width: 80%;
+    }
+}

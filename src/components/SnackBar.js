@@ -22,7 +22,7 @@ class PositionedSnackbar extends React.Component {
         return (
             <div>
                 <Button variant="contained" size="small" color="primary" onClick={this.handleClick({ vertical: 'bottom', horizontal: 'left' })}>
-                    {this.props.type === 'ADD' ? 'Add To Cart' : 'Remove From Cart'}
+                    {this.props.type === 'ADD' ? 'Add To Cart' : 'Remove'}
                 </Button>
                 <Snackbar
                     anchorOrigin={{ vertical, horizontal }}

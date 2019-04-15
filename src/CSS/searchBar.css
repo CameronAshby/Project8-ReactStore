@@ -1,0 +1,11 @@
+.contentContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 900px) {
+    .contentContainer {
+        width: 100%;
+    }
+}

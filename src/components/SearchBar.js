@@ -6,6 +6,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 
+import '../CSS/searchBar.css';
+
 import * as _ from 'lodash';
 import MediaCard from "./MediaCard";
 
@@ -28,11 +30,6 @@ const styles = theme => ({
     },
     tabContainer: {
         display: 'flex',
-        justifyContent: 'center'
-    },
-    contentContainer: {
-        display: 'flex',
-        flexWrap: 'wrap',
         justifyContent: 'center'
     }
 });
@@ -84,38 +81,38 @@ class SimpleTabs extends React.Component {
                 </AppBar>
                 {value.value === 0 &&
                 <TabContainer>
-                    <div className={classes.contentContainer}>
+                    <div className='contentContainer'>
                         {this.mapFilterArray(this.sortChange('all'))}
                     </div>
                 </TabContainer>}
                 {value.value === 1 &&
                 <TabContainer>
-                    <div className={classes.contentContainer}>
+                    <div className='contentContainer'>
                         {this.mapFilterArray(this.sortChange('phone'))}
                     </div>
                 </TabContainer>}
                 {value.value === 2 &&
                 <TabContainer>
-                    <div className={classes.contentContainer}>
+                    <div className='contentContainer'>
                         {this.mapFilterArray(this.sortChange('tv'))}
                     </div>
                 </TabContainer>}
                 {value.value === 3 &&
                 <TabContainer>
-                    <div className={classes.contentContainer}>
+                    <div className='contentContainer'>
                         {this.mapFilterArray(this.sortChange('small-appliance'))}
                         {this.mapFilterArray(this.sortChange('refrigerator'))}
                     </div>
                 </TabContainer>}
                 {value.value === 4 &&
                 <TabContainer>
-                    <div className={classes.contentContainer}>
+                    <div className='contentContainer'>
                         {this.mapFilterArray(this.sortChange('watch'))}
                     </div>
                 </TabContainer>}
                 {value.value === 5 &&
                 <TabContainer>
-                    <div className={classes.contentContainer}>
+                    <div className='contentContainer'>
                         {this.mapFilterArray(this.sortChange('action-camera'))}
                     </div>
                 </TabContainer>}
